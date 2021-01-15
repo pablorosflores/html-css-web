@@ -1,0 +1,730 @@
+/* GENERAL*/
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;1,700&display=swap");
+
+body {
+  font-family: "Noto Serif", serif, arial;
+  color: black;
+  margin: 0px;
+  margin-bottom: 0px;
+  line-height: 1.5em;
+  background-color: rgb(232, 232, 232);
+}
+
+/*Hem de tenir en compte el header (main no el contempla) a l'hora d'aliniar tots els continguts.*/
+main {
+  padding: 20px 15vw;
+  text-align: center;
+}
+
+/* Afegim un cert espai (marge) entre els 
+* diversos elements del cos de les pàgines
+*/
+main > * {
+  margin: 30px 0;
+}
+
+/* TIPOGRAFIA */
+
+h1,
+h2,
+h3 {
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+p {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+/* MOBILE - GENERAL */
+@media screen and (max-width: 700px) {
+  main {
+    padding: 5%;
+  }
+}
+
+/* HEADER */
+.main-header .flex-container {
+  display: flex;
+  align-items: center;
+  /* La propietat justify-content ens permet donar una distribució
+  * del elements molt ràpida i fàcil: https://www.samanthaming.com/flexbox30/12-justify-content-row/ */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0px 10px;
+}
+
+/* MOBILE - HEADER */
+@media screen and (max-width: 700px) {
+  .main-header .flex-container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+  }
+  .header-button {
+    order: 1;
+  }
+  .oc-logo {
+    order: 2;
+  }
+  .main-nav {
+    order: 3;
+  }
+}
+
+.main-header .oc-logo {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-top: 1em;
+}
+
+.oc-logo a {
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+.oc-logo a:visited {
+  color: unset;
+}
+
+.oc-logo i {
+  color: #9b1700;
+  font-weight: normal;
+}
+
+/* HEADER - NAV */
+
+.main-nav > ul {
+  font-family: "Open Sans", sans-serif;
+
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  color: rgb(28, 28, 28);
+}
+
+/*
+*Donem format per que els elements del 
+*navegador es mostrin sobre la mateixa linia
+*/
+
+nav a {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-weight: 700;
+}
+nav a.active {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/*alfa de 0,5*/
+nav a:hover {
+  opacity: 0.5;
+}
+
+nav li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.button {
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px;
+  background-color: #9b1700;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* FOOTER */
+
+/* Situem el nostre footer-container que a la vegada en servirà
+* per crear el nostre esquema de 2 linies i dues columnes útils. 
+ */
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: auto, auto;
+  grid-template-areas: "nav . social" "contact . return";
+  background: #433a44;
+  padding: 1em;
+  font-family: "Open Sans", sans-serif;
+}
+
+.general-footer a {
+  color: #ffffff;
+}
+
+.general-footer a:hover {
+  color: #9b1700;
+}
+
+.footer-container ul {
+  padding-inline-start: 0;
+  color: white;
+}
+
+.footer-container a {
+  text-decoration: none;
+}
+
+/* Llistar sobre la horitzontal */
+.footer-nav li,
+.social-nav li {
+  display: inline;
+}
+
+/* 
+* Amb "content" només volem depreciar els punts previs 
+* al text però no la disposició en files
+*/
+.contact li {
+  list-style-type: none;
+  font-size: 0.8em;
+}
+
+ul.social-nav li + li:before,
+ul.footer-nav li + li:before {
+  padding: 8px;
+  content: "\25CF";
+}
+
+.footer-nav {
+  grid-area: nav;
+  justify-self: left;
+}
+
+.social-nav {
+  grid-area: social;
+  justify-self: right;
+}
+.contact {
+  grid-area: contact;
+  justify-self: left;
+}
+
+.footer-container > div.return {
+  grid-area: return;
+  align-self: end;
+  justify-self: right;
+}
+
+div.return > a {
+  font-size: 3em;
+}
+
+@media screen and (max-width: 700px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "nav" "social" "contact";
+    text-align: center;
+  }
+  .footer-nav,
+  .social-nav,
+  .contact {
+    justify-self: center;
+  }
+
+  .footer-container ul {
+    margin: 0, auto;
+    padding: 0;
+  }
+
+  .footer-nav li,
+  .social-nav li {
+    display: block;
+  }
+
+  ul.social-nav li + li:before,
+  ul.footer-nav li + li:before {
+    padding: 8px;
+    content: none;
+  }
+}
+
+/* GENERAL - FLEXBOX options */
+
+/* flex options for a "general" container */
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  /*El detall de fer us de "space-evenly" fa que es mantinguin centrats amb el salt de linia de l'element*/
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.flex-container .sub-img {
+  max-width: 150px;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.sub-img img {
+  width: 100%;
+}
+
+.flex-container .item {
+  flex-basis: 350px;
+  text-align: left;
+}
+
+.flex-container .item > p {
+  margin-top: 0;
+}
+
+.flex-container div.item:first-child {
+  line-height: 2em;
+  font-size: 1.5em;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ NOU-ESPECÍFIC ++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+/* CLUBS-TEMÀTICS */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+* Estil pels 4 punts que precedeixen le sessions tant 
+* a "clubs temàtics" però també aprofitem per "sessions 2020"
+*/
+
+.grid-container .figtitle,
+.session-grid .figtitle {
+  display: flex;
+  align-items: center;
+}
+
+.grid-container .figtitle *,
+.session-grid .figtitle * {
+  margin: 10px;
+}
+
+.grid-container .figtitle > p,
+.session-grid .figtitle > p {
+  all: unset;
+  color: #9b1700;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+/* Fluid typography: https://css-tricks.com/simplified-fluid-typography/ */
+.grid-container h2 {
+  margin-bottom: 20;
+  font-size: clamp(1em, 1em + 2vw, 1.8em);
+  font-weight: normal;
+}
+
+/* 
+* Eliminem tots els paràmetres per defecte del figure
+* que estèticament no ens interessen
+*/
+.grid-container figure {
+  all: unset;
+  text-align: left;
+  width: 100%;
+}
+
+.grid-container img {
+  width: 100%;
+  height: auto;
+}
+
+.grid-container a {
+  color: #9b1700;
+  text-decoration: none;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ NOU-ESPECÍFIC ++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+/* SESSIONS-2020 */
+
+/* Adaptem l'estil de lletra per "titulars dins de la pàgina sessions-2020.html"*/
+.session-container h3,
+.session-sidebar li,
+.session-films {
+  font-family: "Open Sans", sans-serif, arial;
+}
+
+.session-container h2 {
+  font-size: 1.5em;
+}
+
+/* 
+* Inicialment ja havia plantejat de fer l'estructura amb 
+* un grid i és al final on m'he trobat que requeria de massa 
+* paràmetres per ajustar el separador; segurament no sigui
+* la opció més òptima però el resultat és el desitjat
+*/
+hr {
+  position: absolute;
+  border-top: 4px dotted #9b1700;
+  width: 70%;
+  margin-top: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.session-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header"
+    "sidebar filmgrid filmgrid filmgrid";
+  grid-gap: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .session-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "sidebar" "filmgrid";
+    text-align: center;
+  }
+}
+
+.session-header {
+  grid-area: header;
+  margin: 0 10%;
+}
+
+.session-header > p {
+  text-align: left;
+}
+
+.session-sidebar {
+  grid-area: sidebar;
+  text-align: left;
+}
+
+.session-sidebar a {
+  text-decoration: none;
+}
+
+.session-sidebar a:visited {
+  color: unset;
+}
+
+/* 
+* Entenc que no es demanava però que 
+* ajudar a reconèixer que es tracta d'enllaços.
+*/
+
+.session-sidebar a:hover {
+  color: #9b1700;
+}
+
+/*Format de la llista "sidebar"*/
+.session-sidebar ul {
+  all: unset;
+  list-style-type: none;
+  text-align: left;
+}
+
+.session-grid {
+  grid-area: filmgrid;
+  margin-top: 3em;
+}
+
+.session-grid .figtitle {
+  text-align: left;
+  align-content: center;
+  vertical-align: middle;
+}
+
+.session-films {
+  display: flex;
+}
+
+.session-films figure {
+  flex: 0 1 33.3%;
+  position: relative; /* Necessari per afegir els títols sota les imatges allà on volem:*/
+  padding-bottom: 2em;
+  background-color: white;
+  margin: 0.5em;
+  max-width: 310px; /* Evito que l'item creixi més que l'amplada de la imatge el fons blanc sota la imatge*/
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.session-grid figcaption {
+  position: absolute;
+  bottom: 0;
+  font-size: 2vh;
+}
+
+.session-grid h3 {
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.session-grid h4 {
+  all: unset;
+}
+
+.session-grid a {
+  text-decoration: none;
+  color: #9b1700;
+}
+
+/* 
+* Cal fer que la imatge es limiti a l'espai previst
+* pel seu contenidor --> display: block
+*/
+.session-grid img {
+  max-width: 100%;
+  display: block;
+  max-height: 500px;
+}
+
+@media screen and (max-width: 600px) {
+  .session-films {
+    flex-direction: column;
+  }
+
+  .session-films figure {
+    align-self: center;
+  }
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+/* +++++++++ NOU-ESPECÍFIC ++++++++++ */
+/* ++++++++++++++++++++++++++++++++++ */
+
+/* DETALL SESSIÓ */
+
+h1.detall {
+  margin-left: 5%;
+  text-align: left;
+}
+
+article.detall h2 {
+  font-size: 1.5em;
+}
+
+.fitxa h3 {
+  font-size: 1.2em;
+  border-bottom: 1px solid black;
+}
+
+.detall-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+
+/*
+* Important definir un flex-basis que ens permeti
+* visualitzar la "columna" dreta amb la descripcio 
+* més ample (60%) que la de fitxa (40%).
+*/
+
+.fitxa {
+  flex: 0 0 40%;
+  text-align: left;
+  padding: 0 5%;
+}
+
+.fitxa ul {
+  list-style-type: none;
+}
+
+.descripcio {
+  flex: 0 0 50%;
+  text-align: justify;
+}
+
+/*
+* Propietats necessàries per a fer que el text
+* contorni la imatge circular. Especial atenció
+* a "shape-outside:circle() 
+*/
+
+.descripcio img {
+  border-radius: 50%;
+  float: left;
+  shape-outside: circle();
+  margin-right: 1em;
+}
+
+.descripcio figure {
+  margin: 0;
+}
+
+/*
+* S'ha de fer un "tunning" del video per a que 
+* respecti la visualització necessària. 
+* Bona descripció --> https://howchoo.com/webdev/how-to-make-youtube-videos-responsive-without-js
+*/
+
+.descripcio .video {
+  position: relative;
+  padding-bottom: 56.25%; /* proporción 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
+.descripcio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.descripcio figcaption {
+  font-style: italic;
+}
+
+/*
+* Per aplicar l'estil a la primera lletra amb ::first-letter
+* sobre "span" hem de fer que sigui tipus bloc ja que no accepta
+* elements inline
+*/
+
+.descripcio figcaption span {
+  display: inline-block;
+}
+
+.descripcio figcaption span::first-letter {
+  font-size: larger;
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  .detall-container {
+    flex-direction: column;
+  }
+  .descripcio {
+    text-align: left;
+  }
+}
+
+/* Llista Breadcrum -> https://www.w3schools.com/howto/howto_css_breadcrumbs.asp*/
+ul.breadcrumb {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  color: #1c1c1c;
+  font-family: "Open Sans", sans-serif, arial;
+}
+
+/* Llistar sobre la horitzontal */
+ul.breadcrumb li {
+  display: inline;
+}
+
+/* Afegir els "slash" com a separadors */
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  text-decoration: none;
+  opacity: 1;
+}
+
+ul.breadcrumb li a:visited {
+  color: unset;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  opacity: 0.5;
+}
+
+ul.breadcrumb li.active {
+  opacity: 0.5;
+}
+
+/* ++++++++++++++++++++++++++++++++++ */
+
+/* FORMS */
+
+form {
+  font-family: "Open Sans", sans-serif;
+}
+
+form fieldset {
+  all: unset;
+}
+
+fieldset input[type="text"],
+fieldset input[type="email"] {
+  width: 100%;
+  height: 2.5em;
+  padding-left: 1em;
+}
+
+form ul {
+  all: unset;
+  list-style-type: none;
+}
+
+form li {
+  height: 3em;
+}
+
+form div{
+  display:block;
+  font-size: 0.6em;
+  line-height: 1em;
+  margin:10px;
+}
+
+
+form li.checkbox {
+  width: auto;
+  text-align: left;
+  font-size: 0.6em;
+}
+
+form div p > a {
+  all: unset;
+  color: #9b1700;
+  text-decoration: none;
+}
+
+/* FINE-TUNE */
+
+section > .centered-paragraph {
+  line-height: 1.5em;
+  text-align: center;
+  margin: auto 15%;
+}
