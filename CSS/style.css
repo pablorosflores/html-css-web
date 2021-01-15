@@ -84,7 +84,7 @@ p {
 .oc-logo a {
   padding-left: 10px;
   text-decoration: none;
-  color:#1c1c1c;
+  color: #1c1c1c;
 }
 
 .oc-logo a:visited {
@@ -435,6 +435,7 @@ hr {
 
 .session-sidebar a {
   text-decoration: none;
+  color: #1c1c1c;
 }
 
 .session-sidebar a:visited {
@@ -659,6 +660,7 @@ ul.breadcrumb li + li:before {
 ul.breadcrumb li a {
   text-decoration: none;
   opacity: 1;
+  color: #1c1c1c;
 }
 
 ul.breadcrumb li a:visited {
@@ -702,13 +704,12 @@ form li {
   height: 3em;
 }
 
-form div{
-  display:block;
+form div {
+  display: block;
   font-size: 0.6em;
   line-height: 1em;
-  margin:10px;
+  margin: 10px;
 }
-
 
 form li.checkbox {
   width: auto;
